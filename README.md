@@ -6,6 +6,9 @@ Official release note please check ReleaseNotes.pdf
 
 **Note:** if you believe your device is **RTL8812BU** or **RTL8822BU** but after loaded the module no NIC shows up, the device ID maybe not in the driver whitelist. In this case please submit a new issue with `lsusb` result, and your device name, brand, website, etc.
 
+## Added Supported Devices
+* RaspBerry Pi 4B(Linux raspberrypi 5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020 armv7l GNU/Linux)
+
 ## Supported Devices
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
@@ -26,14 +29,23 @@ And more.
 * All commands need to be run in the driver directory
 * The following commands only build module for the current running kernel
 * You need rebuild the kernel module everytime you update/change the kernel
-## Building
-```
-make
-```
 
-## Installing
+## Building && Installing
 ```
-sudo make install
+apt update
+apt upgrade
+apt dist-upgrade
+apt-get install libelf-dev
+apt install make
+apt install make-guile
+apt install gcc  dkms
+apt-get install libncurses5-dev
+git clone https://github.com/MyDynasty/RTL88x2BU-Linux-Driver.git
+cd RTL88x2BU-Linux-Driver
+apt-get install bc
+make
+make install
+reboot
 ```
 
 ## Uninstalling
